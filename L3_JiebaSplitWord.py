@@ -46,12 +46,12 @@ def stop_words(path):
 
 
 if __name__ == '__main__':
-    stop_words('./data/stop_words.utf8')
+    stop_words('./data/L3/stop_words.utf8')
     import glob
     import random
     import jieba
 
-    files = glob.glob('./data/news/C000013/*.txt')
+    files = glob.glob('./data/L3/news/C000013/*.txt')
     corpus = [get_content(x) for x in files[:5]]
 
     sample_inx = random.randint(0, len(corpus))
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     import jieba.posseg as psg
 
-    split_words = [x for x in jieba.cut(corpus[sample_inx]) if x not in stop_words('./data/stop_words.utf8')]
+    split_words = [x for x in jieba.cut(corpus[sample_inx]) if x not in stop_words('./data/L3/stop_words.utf8')]
     print('样本之一：' + corpus[sample_inx])
     print('样本分词效果：' + '/ '.join(split_words))
     print('样本的topK（10）词：' + str(get_TF(split_words)))

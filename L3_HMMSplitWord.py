@@ -12,7 +12,7 @@ class HMM(object):
         import os
 
         # 主要是用于存取算法中间结果，不用每次都训练模型
-        self.model_file = './data/hmm_model.pkl'
+        self.model_file = './data/L3/hmm_model.pkl'
 
         # 状态值集合
         self.state_list = ['B', 'M', 'E', 'S']
@@ -166,7 +166,7 @@ class HMM(object):
 
 if __name__ == '__main__':
     hmm = HMM()
-    hmm.train('./data/trainCorpus.txt_utf8')
+    hmm.train('./data/L3/trainCorpus.txt_utf8')
 
     text = '这是一个非常棒的方案！'
     res = hmm.cut(text)
